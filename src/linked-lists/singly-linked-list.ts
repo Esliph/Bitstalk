@@ -1,3 +1,5 @@
+import { ILinkedList } from './linked-list.interface'
+
 class Node<T = any> {
 
   constructor(
@@ -6,7 +8,7 @@ class Node<T = any> {
   ) { }
 }
 
-export class SinglyLinkedList<T = any> {
+export class SinglyLinkedList<T = any> implements ILinkedList<T> {
 
   private head: Node<T> | null = null
   private tail: Node<T> | null = null
@@ -16,7 +18,8 @@ export class SinglyLinkedList<T = any> {
   insertFirst(value: T) {
     const newest = new Node(value, this.head)
     this.head = newest
-    if (!this.tail) {
+
+    if (this.isEmpty()) {
       this.tail = newest
     }
 
@@ -25,11 +28,11 @@ export class SinglyLinkedList<T = any> {
 
   insertLast(value: T) {
     const newest = new Node(value)
-    if (!this.tail) {
+    if (this.isEmpty()) {
       this.head = newest
       this.tail = newest
     } else {
-      this.tail.next = newest
+      this.tail!.next = newest
       this.tail = newest
     }
 
@@ -53,24 +56,16 @@ export class SinglyLinkedList<T = any> {
     return value
   }
 
-  *[Symbol.iterator]() {
-    let current = this.head
-    while (current) {
-      yield current.value
-      current = current.next
-    }
-  }
-
   toArray() {
     return Array.from(this)
   }
 
   first() {
-    return this.head?.value || null
+    return this.head?.value || null!
   }
 
   last() {
-    return this.tail?.value || null
+    return this.tail?.value || null!
   }
 
   isEmpty() {
@@ -79,5 +74,13 @@ export class SinglyLinkedList<T = any> {
 
   size() {
     return this._size
+  }
+
+  *[Symbol.iterator]() {
+    let current = this.head
+    while (current) {
+      yield current.value
+      current = current.next
+    }
   }
 }
