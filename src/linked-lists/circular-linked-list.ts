@@ -8,35 +8,26 @@ class Node<T = any> {
   ) { }
 }
 
-export class SinglyLinkedList<T = any> implements ILinkedList<T> {
+export class CircularLinkedList<T = any> implements ILinkedList<T> {
 
-  private head: Node<T> | null = null
   private tail: Node<T> | null = null
 
   private _size = 0
 
+  insertLast(value: T) {
+    this.insertFirst(value)
+
+    this.tail = this.tail!.next
+  }
+
   insertFirst(value: T) {
-    const newest = new Node(value, this.head)
-    this.head = newest
+    const newest = new Node(value, this.tail?.next)
 
     if (this.isEmpty()) {
       this.tail = newest
     }
 
-    this._size++
-  }
-
-  insertLast(value: T) {
-    const newest = new Node(value)
-
-    if (this.isEmpty()) {
-      this.head = newest
-    } else {
-      this.tail!.next = newest
-    }
-
-    this.tail = newest
-
+    this.tail!.next = newest
     this._size++
   }
 
@@ -45,9 +36,9 @@ export class SinglyLinkedList<T = any> implements ILinkedList<T> {
       return null
     }
 
-    const value = this.head!.value || null
+    const value = this.tail!.next!.value
 
-    this.head = null
+    this.tail!.next = this.tail!.next?.next || null
     this._size--
 
     if (this.isEmpty()) {
@@ -62,7 +53,7 @@ export class SinglyLinkedList<T = any> implements ILinkedList<T> {
   }
 
   first() {
-    return this.head?.value || null!
+    return this.tail?.next?.value || null!
   }
 
   last() {
@@ -78,10 +69,13 @@ export class SinglyLinkedList<T = any> implements ILinkedList<T> {
   }
 
   *[Symbol.iterator]() {
-    let current = this.head
-    while (current) {
+    let i = 1
+    let current = this.tail?.next
+
+    while (i <= this._size && current) {
       yield current.value
       current = current.next
+      i++
     }
   }
 }
