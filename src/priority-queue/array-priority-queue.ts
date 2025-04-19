@@ -62,8 +62,4 @@ export class ArrayPriorityQueue<T = any> implements IPriorityQueue<T> {
   size(): number {
     return this.values.length
   }
-
-  setCompareToHandler(handler: CompareToHandler<T>) {
-    this.compareToHandler = handler
-  }
 }

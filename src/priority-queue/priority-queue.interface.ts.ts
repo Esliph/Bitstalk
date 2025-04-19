@@ -6,5 +6,4 @@ export interface IPriorityQueue<T = any> extends IBaseList<T> {
   insert(value: T): void
   removeMin(): T
   min(): T
-  setCompareToHandler(handler: CompareToHandler<T>): void
 }
