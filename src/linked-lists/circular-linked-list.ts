@@ -45,7 +45,7 @@ export class CircularLinkedList<T = any> implements ILinkedList<T> {
       this.tail = null
     }
 
-    return value || null!
+    return value ?? null!
   }
 
   toArray() {
@@ -53,11 +53,11 @@ export class CircularLinkedList<T = any> implements ILinkedList<T> {
   }
 
   first() {
-    return this.tail?.next?.value || null!
+    return this.tail?.next?.value ?? null!
   }
 
   last() {
-    return this.tail?.value || null!
+    return this.tail?.value ?? null!
   }
 
   isEmpty() {

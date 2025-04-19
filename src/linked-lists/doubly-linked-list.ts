@@ -42,7 +42,7 @@ export class DoublyLinkedList<T = any> implements ILinkedList<T> {
 
     this._size--
 
-    return value || null!
+    return value ?? null!
   }
 
   removeLast() {
@@ -56,7 +56,7 @@ export class DoublyLinkedList<T = any> implements ILinkedList<T> {
 
     this._size--
 
-    return value || null!
+    return value ?? null!
   }
 
   private insertBetween(value: T, prev: Node<T>, next: Node<T>) {
@@ -76,11 +76,11 @@ export class DoublyLinkedList<T = any> implements ILinkedList<T> {
   }
 
   first() {
-    return this.header.next?.value || null!
+    return this.header.next?.value ?? null!
   }
 
   last() {
-    return this.trailer.prev?.value || null!
+    return this.trailer.prev?.value ?? null!
   }
 
   isEmpty() {

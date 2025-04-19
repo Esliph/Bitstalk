@@ -54,7 +54,7 @@ export class SinglyLinkedList<T = any> implements ILinkedList<T> {
       this.tail = null
     }
 
-    return value || null!
+    return value ?? null!
   }
 
   toArray() {
@@ -62,11 +62,11 @@ export class SinglyLinkedList<T = any> implements ILinkedList<T> {
   }
 
   first() {
-    return this.head?.value || null!
+    return this.head?.value ?? null!
   }
 
   last() {
-    return this.tail?.value || null!
+    return this.tail?.value ?? null!
   }
 
   isEmpty() {

@@ -1,9 +1,10 @@
 import { IStack } from './stack.interface'
+import { ILinkedList } from '../linked-lists/linked-list.interface'
 import { SinglyLinkedList } from '../linked-lists/singly-linked-list'
 
 export class LinkedStack<T = any> implements IStack<T> {
 
-  private linkedList = new SinglyLinkedList<T>()
+  private linkedList: ILinkedList<T> = new SinglyLinkedList<T>()
 
   push(value: T) {
     this.linkedList.insertFirst(value)
