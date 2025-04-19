@@ -9,11 +9,11 @@ export class ArrayQueue<T = any> implements IQueue<T> {
   }
 
   dequeue(): T {
-    return this.values.shift() ?? null!
+    return this.values.shift() ?? null as T
   }
 
   first(): T {
-    return this.values[0] ?? null!
+    return this.values[0] ?? null as T
   }
 
   toArray(): T[] {

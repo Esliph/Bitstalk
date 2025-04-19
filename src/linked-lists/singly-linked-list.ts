@@ -42,7 +42,7 @@ export class SinglyLinkedList<T = any> implements ILinkedList<T> {
 
   removeFirst() {
     if (this.isEmpty()) {
-      return null!
+      return null as T
     }
 
     const value = this.head!.value
@@ -54,7 +54,7 @@ export class SinglyLinkedList<T = any> implements ILinkedList<T> {
       this.tail = null
     }
 
-    return value ?? null!
+    return value ?? null as T
   }
 
   toArray() {
@@ -62,11 +62,11 @@ export class SinglyLinkedList<T = any> implements ILinkedList<T> {
   }
 
   first() {
-    return this.head?.value ?? null!
+    return this.head?.value ?? null as T
   }
 
   last() {
-    return this.tail?.value ?? null!
+    return this.tail?.value ?? null as T
   }
 
   isEmpty() {

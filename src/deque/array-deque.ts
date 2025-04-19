@@ -13,19 +13,19 @@ export class ArrayDeque<T = any> implements IDeque<T> {
   }
 
   removeFirst() {
-    return this.values.shift() ?? null!
+    return this.values.shift() ?? null as T
   }
 
   removeLast() {
-    return this.values.pop() ?? null!
+    return this.values.pop() ?? null as T
   }
 
   first() {
-    return this.values[0] ?? null!
+    return this.values[0] ?? null as T
   }
 
   last() {
-    return this.values[this.values.length - 1] ?? null!
+    return this.values[this.values.length - 1] ?? null as T
   }
 
   toArray() {

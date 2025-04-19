@@ -13,12 +13,12 @@ export class ArrayStack<T = any> implements IStack<T> {
   }
 
   pop() {
-    return this.values.pop() || null!
+    return this.values.pop() ?? null as T
   }
 
   top() {
     if (this.isEmpty()) {
-      return null!
+      return null as T
     }
 
     return this.values[this.values.length - 1]

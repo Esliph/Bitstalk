@@ -11,8 +11,8 @@ class Node<T = any> {
 
 export class DoublyLinkedList<T = any> implements ILinkedList<T> {
 
-  private header = new Node<T>(null!)
-  private trailer = new Node<T>(null!)
+  private header = new Node<T>(null as T)
+  private trailer = new Node<T>(null as T)
 
   private _size = 0
 
@@ -33,7 +33,7 @@ export class DoublyLinkedList<T = any> implements ILinkedList<T> {
 
   removeFirst() {
     if (this.isEmpty()) {
-      return null!
+      return null as T
     }
 
     const value = this.header.next!.value
@@ -42,12 +42,12 @@ export class DoublyLinkedList<T = any> implements ILinkedList<T> {
 
     this._size--
 
-    return value ?? null!
+    return value ?? null as T
   }
 
   removeLast() {
     if (this.isEmpty()) {
-      return null!
+      return null as T
     }
 
     const value = this.trailer.prev!.value
@@ -56,7 +56,7 @@ export class DoublyLinkedList<T = any> implements ILinkedList<T> {
 
     this._size--
 
-    return value ?? null!
+    return value ?? null as T
   }
 
   private insertBetween(value: T, prev: Node<T>, next: Node<T>) {
@@ -76,11 +76,11 @@ export class DoublyLinkedList<T = any> implements ILinkedList<T> {
   }
 
   first() {
-    return this.header.next?.value ?? null!
+    return this.header.next?.value ?? null as T
   }
 
   last() {
-    return this.trailer.prev?.value ?? null!
+    return this.trailer.prev?.value ?? null as T
   }
 
   isEmpty() {
