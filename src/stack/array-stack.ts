@@ -16,7 +16,7 @@ export class ArrayStack<T = any> implements IStack<T> {
     return this.values.pop() || null!
   }
 
-  top(): T {
+  top() {
     if (this.isEmpty()) {
       return null!
     }
@@ -24,15 +24,15 @@ export class ArrayStack<T = any> implements IStack<T> {
     return this.values[this.values.length - 1]
   }
 
-  toArray(): T[] {
+  toArray() {
     return this.values
   }
 
-  isEmpty(): boolean {
+  isEmpty() {
     return this.values.length == 0
   }
 
-  size(): number {
+  size() {
     return this.values.length
   }
 }

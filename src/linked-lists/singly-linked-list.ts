@@ -42,19 +42,19 @@ export class SinglyLinkedList<T = any> implements ILinkedList<T> {
 
   removeFirst() {
     if (this.isEmpty()) {
-      return null
+      return null!
     }
 
-    const value = this.head!.value || null
+    const value = this.head!.value
 
-    this.head = null
+    this.head = this.head!.next
     this._size--
 
     if (this.isEmpty()) {
       this.tail = null
     }
 
-    return value
+    return value || null!
   }
 
   toArray() {

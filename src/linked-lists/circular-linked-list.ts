@@ -33,7 +33,7 @@ export class CircularLinkedList<T = any> implements ILinkedList<T> {
 
   removeFirst() {
     if (this.isEmpty()) {
-      return null
+      return null!
     }
 
     const value = this.tail!.next!.value
@@ -45,7 +45,7 @@ export class CircularLinkedList<T = any> implements ILinkedList<T> {
       this.tail = null
     }
 
-    return value
+    return value || null!
   }
 
   toArray() {

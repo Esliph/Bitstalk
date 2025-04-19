@@ -31,7 +31,5 @@ describe('Linked Lists - Singly Linked List', () => {
     expect(list.first()).toEqual(2)
     expect(list.last()).toEqual(1)
     expect(list.size()).toEqual(4)
-
-    console.log(list.toArray())
   })
 })
