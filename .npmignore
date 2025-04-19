@@ -1,0 +1,8 @@
+.vscode
+src/
+.gitignore
+.prettierignore
+.prettierrc
+.eslint.config.js
+tsconfig.json
+*.spec.ts
