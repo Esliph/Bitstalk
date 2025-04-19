@@ -24,6 +24,10 @@ export class ArrayStack<T = any> implements IStack<T> {
     return this.values[this.values.length - 1]
   }
 
+  clear() {
+    this.values = []
+  }
+
   toArray() {
     return [...this.values]
   }

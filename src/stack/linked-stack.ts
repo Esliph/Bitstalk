@@ -26,6 +26,10 @@ export class LinkedStack<T = any> implements IStack<T> {
     return this.linkedList.first()
   }
 
+  clear() {
+    this.linkedList.clear()
+  }
+
   toArray() {
     return this.linkedList.toArray()
   }
