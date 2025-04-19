@@ -52,7 +52,7 @@ export class ArrayPriorityQueue<T = any> implements IPriorityQueue<T> {
   }
 
   toArray(): T[] {
-    return this.values
+    return [...this.values]
   }
 
   isEmpty(): boolean {

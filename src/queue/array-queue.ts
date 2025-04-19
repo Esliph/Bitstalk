@@ -17,7 +17,7 @@ export class ArrayQueue<T = any> implements IQueue<T> {
   }
 
   toArray(): T[] {
-    return this.values
+    return [...this.values]
   }
 
   isEmpty(): boolean {

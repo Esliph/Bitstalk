@@ -25,7 +25,7 @@ export class ArrayStack<T = any> implements IStack<T> {
   }
 
   toArray() {
-    return this.values
+    return [...this.values]
   }
 
   isEmpty() {
