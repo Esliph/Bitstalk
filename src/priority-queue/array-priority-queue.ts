@@ -5,7 +5,7 @@ export class ArrayPriorityQueue<T = any> implements IPriorityQueue<T> {
   private values: T[] = []
 
   constructor(
-    private compareToHandler: CompareToHandler<T> = ArrayPriorityQueue.getDefaultCompareToHandler<T>()
+    private compareTo: CompareToHandler<T> = ArrayPriorityQueue.getDefaultCompareToHandler<T>()
   ) { }
 
   private static getDefaultCompareToHandler<T>() {
@@ -41,7 +41,7 @@ export class ArrayPriorityQueue<T = any> implements IPriorityQueue<T> {
 
     let i = 1
     while (i < this.values.length) {
-      if (this.compareToHandler(this.values[minIndex], this.values[i]) > 0) {
+      if (this.compareTo(this.values[minIndex], this.values[i]) > 0) {
         minIndex = i
       }
 
@@ -49,6 +49,10 @@ export class ArrayPriorityQueue<T = any> implements IPriorityQueue<T> {
     }
 
     return { value: this.values[minIndex], index: minIndex }
+  }
+
+  clear() {
+    this.values = []
   }
 
   toArray(): T[] {

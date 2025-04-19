@@ -29,6 +29,10 @@ export class LinkedDeque<T = any> implements IDeque<T> {
     return this.linkedList.last()
   }
 
+  clear() {
+    this.linkedList.clear()
+  }
+
   toArray() {
     return this.linkedList.toArray()
   }

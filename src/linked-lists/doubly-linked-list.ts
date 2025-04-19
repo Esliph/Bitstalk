@@ -71,6 +71,12 @@ export class DoublyLinkedList<T = any> implements ILinkedList<T> {
     node.next!.prev = node.prev
   }
 
+  clear() {
+    this.header = new Node<T>(null as T)
+    this.trailer = new Node<T>(null as T)
+    this._size = 0
+  }
+
   toArray() {
     return Array.from(this)
   }

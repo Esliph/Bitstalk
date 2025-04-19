@@ -28,6 +28,10 @@ export class ArrayDeque<T = any> implements IDeque<T> {
     return this.values[this.values.length - 1] ?? null as T
   }
 
+  clear() {
+    this.values = []
+  }
+
   toArray() {
     return [...this.values]
   }

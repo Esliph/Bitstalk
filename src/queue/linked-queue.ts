@@ -18,6 +18,10 @@ export class LinkedQueue<T = any> implements IQueue<T> {
     return this.linkedList.first()
   }
 
+  clear() {
+    this.linkedList.clear()
+  }
+
   toArray() {
     return this.linkedList.toArray()
   }

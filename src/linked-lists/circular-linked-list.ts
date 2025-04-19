@@ -48,6 +48,11 @@ export class CircularLinkedList<T = any> implements ILinkedList<T> {
     return value ?? null as T
   }
 
+  clear() {
+    this.tail = null
+    this._size = 0
+  }
+
   toArray() {
     return Array.from(this)
   }

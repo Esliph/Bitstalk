@@ -4,27 +4,31 @@ export class ArrayQueue<T = any> implements IQueue<T> {
 
   private values: T[] = []
 
-  enqueue(value: T): void {
+  enqueue(value: T) {
     this.values.push(value)
   }
 
-  dequeue(): T {
+  dequeue() {
     return this.values.shift() ?? null as T
   }
 
-  first(): T {
+  first() {
     return this.values[0] ?? null as T
   }
 
-  toArray(): T[] {
+  clear() {
+    this.values = []
+  }
+
+  toArray() {
     return [...this.values]
   }
 
-  isEmpty(): boolean {
+  isEmpty() {
     return this.values.length == 0
   }
 
-  size(): number {
+  size() {
     return this.values.length
   }
 }
